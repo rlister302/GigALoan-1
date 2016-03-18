@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GigALoan_DAL", "GigALoan_DAL\GigALoan_DAL.csproj", "{195C9514-1A19-4E1F-AEA5-B75A17DE5B04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GigALoan_Model", "GigALoan_Model\GigALoan_Model.csproj", "{ED78CD9A-F6D0-4811-9087-054FD9C6CE23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GigALoan_Service", "GigALoan_Service\GigALoan_Service.csproj", "{11960894-89B7-4B4C-BADD-415324CC49CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{195C9514-1A19-4E1F-AEA5-B75A17DE5B04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{195C9514-1A19-4E1F-AEA5-B75A17DE5B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{195C9514-1A19-4E1F-AEA5-B75A17DE5B04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{195C9514-1A19-4E1F-AEA5-B75A17DE5B04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED78CD9A-F6D0-4811-9087-054FD9C6CE23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED78CD9A-F6D0-4811-9087-054FD9C6CE23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED78CD9A-F6D0-4811-9087-054FD9C6CE23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED78CD9A-F6D0-4811-9087-054FD9C6CE23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11960894-89B7-4B4C-BADD-415324CC49CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11960894-89B7-4B4C-BADD-415324CC49CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11960894-89B7-4B4C-BADD-415324CC49CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11960894-89B7-4B4C-BADD-415324CC49CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
