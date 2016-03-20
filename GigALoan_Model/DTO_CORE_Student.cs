@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 namespace GigALoan_Model
 {
     [DataContract]
-    class DTO_CORE_Student
+    public class DTO_CORE_Student
     {
         [DataMember]
         public int StudentID { get; set; }

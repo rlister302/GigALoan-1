@@ -88,7 +88,7 @@ namespace GigALoan_Service
             {
                 returnList.Add(new DTO_SPRT_College(entity.CollegeID, entity.CollegeName));
             }
-
+            
             return returnList;
         }
     }
