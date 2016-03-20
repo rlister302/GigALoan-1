@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 namespace GigALoan_Model
 {
     [DataContract]
-    class DTO_SPRT_Majors
+    public class DTO_SPRT_Majors
     {
         DTO_SPRT_Majors()
         { }

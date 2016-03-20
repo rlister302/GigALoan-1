@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 namespace GigALoan_Model
 {
     [DataContract]
-    class DTO_CHLD_GigImages
+    public class DTO_CHLD_GigImages
     {
         DTO_CHLD_GigImages()
         { }

@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 namespace GigALoan_Model
 {
     [DataContract]
-    class DTO_CHLD_StudentLoans
+    public class DTO_CHLD_StudentLoans
     {
         public DTO_CHLD_StudentLoans()
         { }
