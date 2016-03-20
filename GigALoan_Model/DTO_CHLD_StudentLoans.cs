@@ -12,7 +12,7 @@ namespace GigALoan_Model
     {
         public DTO_CHLD_StudentLoans()
         { }
-        public DTO_CHLD_StudentLoans(int id, int studentID, int companyID, double loanAmount, long accountNum)
+        public DTO_CHLD_StudentLoans(int id, int studentID, int companyID, double loanAmount, string accountNum)
         {
             this.LoanID = id;
             this.StudentID = studentID;
@@ -29,7 +29,7 @@ namespace GigALoan_Model
         [DataMember]
         public double LoanAmount { get; set; }
         [DataMember]
-        public long AccountNumber { get; set; }
+        public string AccountNumber { get; set; }
 
     }
 }
