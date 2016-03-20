@@ -50,6 +50,15 @@
     <Compile Include="DTO_CORE_Gig.cs" />
     <Compile Include="DTO_CORE_Student.cs" />
     <Compile Include="DTO_SPRT_College.cs" />
+    <Compile Include="DTO_CHLD_GigImage.cs" />
+    <Compile Include="DTO_CHLD_StudentImage.cs" />
+    <Compile Include="DTO_CHLD_StudentLoan.cs" />
+    <Compile Include="DTO_CHLD_StudentReference.cs" />
+    <Compile Include="DTO_CORE_GigAlert.cs" />
+    <Compile Include="DTO_LOG_Events.cs" />
+    <Compile Include="DTO_SPRT_GigCategory.cs" />
+    <Compile Include="DTO_SPRT_GigType.cs" />
+    <Compile Include="DTO_SPRT_Major.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
