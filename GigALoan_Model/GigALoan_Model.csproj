@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO_CORE_Gig.cs" />
     <Compile Include="DTO_CORE_Student.cs" />
     <Compile Include="DTO_SPRT_College.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
