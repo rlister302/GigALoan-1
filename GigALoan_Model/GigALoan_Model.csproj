@@ -50,6 +50,7 @@
     <Compile Include="DTO_CHLD_StudentImages.cs" />
     <Compile Include="DTO_CHLD_StudentLoans.cs" />
     <Compile Include="DTO_SPRT_Colleges.cs" />
+    <Compile Include="DTO_SPRT_Majors.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

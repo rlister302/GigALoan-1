@@ -7,7 +7,7 @@
       <Diagram DiagramId="ec18206b0343424591e5e3022c8b28e9" Name="Diagram1">
         <EntityTypeShape EntityType="DB_42039_gigModel.CHLD_ClientImages" Width="1.5" PointX="8.25" PointY="15.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_42039_gigModel.CHLD_GigImages" Width="1.5" PointX="12.75" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_42039_gigModel.CHLD_StudentImages" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_42039_gigModel.CHLD_StudentImages" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="false" />
         <EntityTypeShape EntityType="DB_42039_gigModel.CHLD_StudentLoans" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="false" />
         <EntityTypeShape EntityType="DB_42039_gigModel.CHLD_StudentReferences" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_42039_gigModel.CORE_Clients" Width="1.5" PointX="6" PointY="15.375" IsExpanded="true" />
