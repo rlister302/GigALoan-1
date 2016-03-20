@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="DB_42039_gigModel.CHLD_GigImages" Width="1.5" PointX="12.75" PointY="6" IsExpanded="false" />
         <EntityTypeShape EntityType="DB_42039_gigModel.CHLD_StudentImages" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="false" />
         <EntityTypeShape EntityType="DB_42039_gigModel.CHLD_StudentLoans" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="false" />
-        <EntityTypeShape EntityType="DB_42039_gigModel.CHLD_StudentReferences" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_42039_gigModel.CHLD_StudentReferences" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="false" />
         <EntityTypeShape EntityType="DB_42039_gigModel.CORE_Clients" Width="1.5" PointX="6" PointY="15.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_42039_gigModel.CORE_GigAlerts" Width="1.5" PointX="8.25" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_42039_gigModel.CORE_Gigs" Width="1.5" PointX="10.5" PointY="5.375" IsExpanded="false" />
