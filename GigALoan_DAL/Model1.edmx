@@ -389,6 +389,9 @@
           <Parameter Name="ImageUUID" Type="varchar" Mode="In" />
           <Parameter Name="ImageName" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="proc_AddCollegeTest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CollegeName" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="proc_AddGigAlert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ClientID" Type="int" Mode="In" />
           <Parameter Name="TypeID" Type="int" Mode="In" />
@@ -1092,7 +1095,6 @@
           <FunctionImport Name="proc_GetClientImages" ReturnType="Collection(DB_42039_gigModel.proc_GetClientImages_Result)">
           <Parameter Name="ClientID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="proc_GetColleges" ReturnType="Collection(String)" />
           <FunctionImport Name="proc_GetGigImage" ReturnType="Collection(DB_42039_gigModel.proc_GetGigImage_Result)">
             <Parameter Name="GigID" Mode="In" Type="Int32" />
             <Parameter Name="ImageID" Mode="In" Type="Int32" />
@@ -1166,6 +1168,10 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="proc_GetColleges" ReturnType="Collection(DB_42039_gigModel.proc_GetColleges_Result)" />
+          <FunctionImport Name="proc_AddCollegeTest">
+            <Parameter Name="CollegeName" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="proc_GetClientImage_Result">
           <Property Type="Int32" Name="ImageID" Nullable="false" />
@@ -1233,6 +1239,10 @@
           <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="proc_GetColleges_Result">
+          <Property Type="Int32" Name="CollegeID" Nullable="false" />
+          <Property Type="String" Name="CollegeName" Nullable="true" MaxLength="255" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1461,7 +1471,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="proc_GetColleges" FunctionName="DB_42039_gigModel.Store.proc_GetColleges" />
           <FunctionImportMapping FunctionImportName="proc_GetGigImage" FunctionName="DB_42039_gigModel.Store.proc_GetGigImage">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DB_42039_gigModel.proc_GetGigImage_Result">
@@ -1558,6 +1567,15 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="DB_42039_gigModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="DB_42039_gigModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="proc_GetColleges" FunctionName="DB_42039_gigModel.Store.proc_GetColleges">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_42039_gigModel.proc_GetColleges_Result">
+                <ScalarProperty Name="CollegeID" ColumnName="CollegeID" />
+                <ScalarProperty Name="CollegeName" ColumnName="CollegeName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="proc_AddCollegeTest" FunctionName="DB_42039_gigModel.Store.proc_AddCollegeTest" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -236,11 +236,6 @@ namespace GigALoan_DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<proc_GetClientImages_Result>("proc_GetClientImages", clientIDParameter);
         }
     
-        public virtual ObjectResult<string> proc_GetColleges()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("proc_GetColleges");
-        }
-    
         public virtual ObjectResult<proc_GetGigImage_Result> proc_GetGigImage(Nullable<int> gigID, Nullable<int> imageID)
         {
             var gigIDParameter = gigID.HasValue ?
@@ -495,6 +490,20 @@ namespace GigALoan_DAL
         public virtual int sp_upgraddiagrams()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
+        public virtual ObjectResult<proc_GetColleges_Result> proc_GetColleges()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<proc_GetColleges_Result>("proc_GetColleges");
+        }
+    
+        public virtual int proc_AddCollegeTest(string collegeName)
+        {
+            var collegeNameParameter = collegeName != null ?
+                new ObjectParameter("CollegeName", collegeName) :
+                new ObjectParameter("CollegeName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("proc_AddCollegeTest", collegeNameParameter);
         }
     }
 }
