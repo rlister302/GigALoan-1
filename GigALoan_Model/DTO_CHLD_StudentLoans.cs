@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Runtime.Serialization;
+
+namespace GigALoan_Model
+{
+    [DataContract]
+    class DTO_CHLD_StudentLoans
+    {
+        public DTO_CHLD_StudentLoans()
+        { }
+        public DTO_CHLD_StudentLoans(int id, int studentID, int companyID, double loanAmount, long accountNum)
+        {
+            this.LoanID = id;
+            this.StudentID = studentID;
+            this.CompanyID = companyID;
+            this.LoanAmount = loanAmount;
+            this.AccountNumber = accountNum;
+        }
+        [DataMember]
+        public int LoanID { get; set; }
+        [DataMember]
+        public int StudentID { get; set; }
+        [DataMember]
+        public int CompanyID { get; set; }
+        [DataMember]
+        public double LoanAmount { get; set; }
+        [DataMember]
+        public long AccountNumber { get; set; }
+
+    }
+}
