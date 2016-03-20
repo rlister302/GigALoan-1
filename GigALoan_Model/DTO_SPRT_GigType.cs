@@ -8,12 +8,12 @@ using System.Runtime.Serialization;
 namespace GigALoan_Model
 {
     [DataContract]
-    public class DTO_SPRT_GigTypes
+    public class DTO_SPRT_GigType
     {
-        DTO_SPRT_GigTypes()
+        DTO_SPRT_GigType()
         { }
 
-        DTO_SPRT_GigTypes(int id, string typeName, int categoryID)
+        DTO_SPRT_GigType(int id, string typeName, int categoryID)
         {
             this.TypeID = id;
             this.TypeName = typeName;

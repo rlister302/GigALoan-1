@@ -8,9 +8,9 @@ using System.Runtime.Serialization;
 namespace GigALoan_Model
 {
     [DataContract]
-    public class DTO_CHLD_StudentReferences
+    public class DTO_CHLD_StudentReference
     {
-        DTO_CHLD_StudentReferences()
+        DTO_CHLD_StudentReference()
         { }
 
         [DataMember]

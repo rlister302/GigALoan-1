@@ -8,9 +8,9 @@ using System.Runtime.Serialization;
 namespace GigALoan_Model
 {
     [DataContract]
-    public class DTO_CORE_GigAlerts
+    public class DTO_CORE_GigAlert
     {
-        DTO_CORE_GigAlerts()
+        DTO_CORE_GigAlert()
         { }
 
         [DataMember]

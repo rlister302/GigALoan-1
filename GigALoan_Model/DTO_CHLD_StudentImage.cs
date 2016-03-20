@@ -8,26 +8,27 @@ using System.Runtime.Serialization;
 namespace GigALoan_Model
 {
     [DataContract]
-    public class DTO_CHLD_GigImages
+    public class DTO_CHLD_StudentImage
     {
-        DTO_CHLD_GigImages()
+        DTO_CHLD_StudentImage()
         { }
 
-        DTO_CHLD_GigImages(int gigID, string imageName)
+        DTO_CHLD_StudentImage(int studentID, string imageName)
         {
-            this.GigID = gigID;
+            this.StudentID = studentID;
             this.ImageName = imageName;
         }
 
         [DataMember]
         public int ImageID { get; set; }
         [DataMember]
-        public int GigID { get; set; }
+        public int StudentID { get; set; }
         [DataMember]
         public string ImageURL { get; set; }
         [DataMember]
         public string ImageUUID { get; set; }
         [DataMember]
         public string ImageName { get; set; }
+
     }
 }

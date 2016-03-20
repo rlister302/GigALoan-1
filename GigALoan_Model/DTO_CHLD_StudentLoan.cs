@@ -8,11 +8,11 @@ using System.Runtime.Serialization;
 namespace GigALoan_Model
 {
     [DataContract]
-    public class DTO_CHLD_StudentLoans
+    public class DTO_CHLD_StudentLoan
     {
-        public DTO_CHLD_StudentLoans()
+        public DTO_CHLD_StudentLoan()
         { }
-        public DTO_CHLD_StudentLoans(int id, int studentID, int companyID, double loanAmount, string accountNum)
+        public DTO_CHLD_StudentLoan(int id, int studentID, int companyID, double loanAmount, string accountNum)
         {
             this.LoanID = id;
             this.StudentID = studentID;

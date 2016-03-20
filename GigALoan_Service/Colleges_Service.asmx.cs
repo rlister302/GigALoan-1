@@ -37,15 +37,15 @@ namespace GigALoan_Service
         }
 
         [WebMethod]
-        public DTO_SPRT_Colleges GetCollegeByID(int id)
+        public DTO_SPRT_College GetCollegeByID(int id)
         {
-            DTO_SPRT_Colleges returnCollege = new DTO_SPRT_Colleges();
+            DTO_SPRT_College returnCollege = new DTO_SPRT_College();
 
             GigALoan_DAL.DB_42039_gigEntities1 context = new GigALoan_DAL.DB_42039_gigEntities1();
 
             //Retrieving a College by ID using Stored Proc and Linq Lambda
             var college = context.proc_GetColleges().Where(col => col.CollegeID == id).Single();
-            DTO_SPRT_Colleges result = new DTO_SPRT_Colleges(college.CollegeID, college.CollegeName);
+            DTO_SPRT_College result = new DTO_SPRT_College(college.CollegeID, college.CollegeName);
 
             //Retrieving a College by ID using Linq
             //DTO_SPRT_Colleges result =
@@ -61,9 +61,9 @@ namespace GigALoan_Service
         }
 
         [WebMethod]
-        public List<DTO_SPRT_Colleges> GetColleges()
+        public List<DTO_SPRT_College> GetColleges()
         {
-            List<DTO_SPRT_Colleges> returnList = new List<DTO_SPRT_Colleges>();
+            List<DTO_SPRT_College> returnList = new List<DTO_SPRT_College>();
             GigALoan_DAL.DB_42039_gigEntities1 context = new GigALoan_DAL.DB_42039_gigEntities1();
             //List<SPRT_Colleges> newlist = context.SPRT_Colleges.ToList();         
 
@@ -71,22 +71,22 @@ namespace GigALoan_Service
             var list = context.proc_GetColleges().ToList();
             foreach (var entity in list)
             {
-                returnList.Add(new DTO_SPRT_Colleges(entity.CollegeID, entity.CollegeName));
+                returnList.Add(new DTO_SPRT_College(entity.CollegeID, entity.CollegeName));
             }
 
             return returnList;
         }
 
         [WebMethod]
-        public List<DTO_SPRT_Colleges> GetTwentyColleges()
+        public List<DTO_SPRT_College> GetTwentyColleges()
         {
-            List<DTO_SPRT_Colleges> returnList = new List<DTO_SPRT_Colleges>();
+            List<DTO_SPRT_College> returnList = new List<DTO_SPRT_College>();
             GigALoan_DAL.DB_42039_gigEntities1 context = new GigALoan_DAL.DB_42039_gigEntities1();
             List<SPRT_Colleges> newlist = context.SPRT_Colleges.Take(20).ToList();
 
             foreach (SPRT_Colleges entity in newlist)
             {
-                returnList.Add(new DTO_SPRT_Colleges(entity.CollegeID, entity.CollegeName));
+                returnList.Add(new DTO_SPRT_College(entity.CollegeID, entity.CollegeName));
             }
 
             return returnList;

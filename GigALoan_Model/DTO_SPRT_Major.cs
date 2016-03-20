@@ -8,18 +8,20 @@ using System.Runtime.Serialization;
 namespace GigALoan_Model
 {
     [DataContract]
-    public class DTO_SPRT_Colleges
+    public class DTO_SPRT_Major
     {
-        public DTO_SPRT_Colleges()
+        DTO_SPRT_Major()
         { }
-        public DTO_SPRT_Colleges(int id, string name)
+
+        DTO_SPRT_Major(int id, string name)
         {
-            this.CollegeID = id;
-            this.CollegeName = name;
+            this.MajorID = id;
+            this.MajorName = name;
         }
+
         [DataMember]
-        public int CollegeID { get; set; }
+        public int MajorID { get; set; }
         [DataMember]
-        public string CollegeName { get; set; }
+        public string MajorName { get; set; }
     }
 }
