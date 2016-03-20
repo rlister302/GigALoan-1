@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO_CHLD_GigImages.cs" />
     <Compile Include="DTO_CHLD_StudentImages.cs" />
     <Compile Include="DTO_CHLD_StudentLoans.cs" />
     <Compile Include="DTO_SPRT_Colleges.cs" />
