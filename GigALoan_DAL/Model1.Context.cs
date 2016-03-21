@@ -505,5 +505,15 @@ namespace GigALoan_DAL
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("proc_AddCollegeTest", collegeNameParameter);
         }
+    
+        public virtual ObjectResult<proc_GetMajors_Result> proc_GetMajors()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<proc_GetMajors_Result>("proc_GetMajors");
+        }
+    
+        public virtual ObjectResult<proc_GetGigCategories_Result> proc_GetGigCategories()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<proc_GetGigCategories_Result>("proc_GetGigCategories");
+        }
     }
 }
