@@ -11,11 +11,9 @@ namespace GigALoan_DAL
 {
     using System;
     
-    public partial class proc_GetGigTypes_Result
+    public partial class proc_GetGigCategories_Result
     {
-        public int typeid { get; set; }
-        public string TypeName { get; set; }
-        public string Category { get; set; }
         public int CategoryID { get; set; }
+        public string Category { get; set; }
     }
 }
