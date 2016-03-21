@@ -27,15 +27,61 @@ namespace GigALoan_Service
         [WebMethod]
         public string FindLocalAlerts(string request)
         {
-            return "Stub Method... " + "You entered " + JsonConvert.DeserializeObject(request);
+            return "Stub Method... " + "You entered " + request;
         }
-        public string FindAlertByPay(string request)
+        [WebMethod]
+        public string FindAlertsByPay(string request)
         {
-            return "Stub Method... " + "You entered " + JsonConvert.DeserializeObject(request);
+            var requestObject = JsonConvert.DeserializeObject<DTO_CORE_GigAlert>(request);
+
+            GigALoan_DAL.DB_42039_gigEntities1 context = new GigALoan_DAL.DB_42039_gigEntities1();
+
+            List<DTO_CORE_GigAlert> results = new List<DTO_CORE_GigAlert>();
+
+            var alertList = context.CORE_GigAlerts.Where(ga => ga.PaymentAmt >= requestObject.PaymentAmt);
+
+            foreach (CORE_GigAlerts alert in alertList)
+            {
+                results.Add(new DTO_CORE_GigAlert { 
+                    AlertID = alert.AlertID,
+                    ClientID = alert.ClientID,
+                    TypeID = alert.TypeID,
+                    Title = alert.Title,
+                    Comment = alert.Comment,
+                    PaymentAmt = alert.PaymentAmt,
+                    DateCreated = alert.DateCreated,
+                    Active = alert.Active
+                });
+            }
+
+            return JsonConvert.SerializeObject(results);
         }
-        public string FindAlertByType(string request)
+        [WebMethod]
+        public string FindAlertsByType(string request)
         {
-            return "Stub Method... " + "You entered " + JsonConvert.DeserializeObject(request);
+            var requestObject = JsonConvert.DeserializeObject<DTO_CORE_GigAlert>(request);
+
+            GigALoan_DAL.DB_42039_gigEntities1 context = new GigALoan_DAL.DB_42039_gigEntities1();
+
+            List<DTO_CORE_GigAlert> results = new List<DTO_CORE_GigAlert>();
+
+            var alertList = context.CORE_GigAlerts.Where(ga => ga.SPRT_GigTypes.TypeID == requestObject.TypeID);
+
+            foreach (CORE_GigAlerts alert in alertList)
+            {
+                results.Add(new DTO_CORE_GigAlert {
+                    AlertID = alert.AlertID,
+                    ClientID = alert.ClientID,
+                    TypeID = alert.TypeID,
+                    Title = alert.Title,
+                    Comment = alert.Comment,
+                    PaymentAmt = alert.PaymentAmt,
+                    DateCreated = alert.DateCreated,
+                    Active = alert.Active
+                });
+            }
+
+            return JsonConvert.SerializeObject(results);
         }
     }
 }
