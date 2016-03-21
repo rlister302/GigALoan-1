@@ -13,6 +13,12 @@ namespace GigALoan_Model
         public DTO_SPRT_GigType()
         { }
 
+        public DTO_SPRT_GigType(int id, string typeName)
+        {
+            this.TypeID = id;
+            this.TypeName = typeName;
+        }
+
         public DTO_SPRT_GigType(int id, string typeName, int categoryID)
         {
             this.TypeID = id;
