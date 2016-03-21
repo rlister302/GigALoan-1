@@ -1174,8 +1174,8 @@
           <FunctionImport Name="proc_AddCollegeTest">
           <Parameter Name="CollegeName" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="proc_GetMajors" ReturnType="Collection(DB_42039_gigModel.proc_GetMajors_Result)" />
           <FunctionImport Name="proc_GetGigCategories" ReturnType="Collection(DB_42039_gigModel.proc_GetGigCategories_Result)" />
+          <FunctionImport Name="proc_GetMajors" ReturnType="Collection(DB_42039_gigModel.proc_GetMajors_Result)" />
         </EntityContainer>
         <ComplexType Name="proc_GetClientImage_Result">
           <Property Type="Int32" Name="ImageID" Nullable="false" />
@@ -1249,13 +1249,13 @@
           <Property Type="Int32" Name="CollegeID" Nullable="false" />
           <Property Type="String" Name="CollegeName" Nullable="true" MaxLength="255" />
         </ComplexType>
-        <ComplexType Name="proc_GetMajors_Result">
-          <Property Type="Int32" Name="MajorID" Nullable="false" />
-          <Property Type="String" Name="MajorName" Nullable="true" MaxLength="255" />
-        </ComplexType>
         <ComplexType Name="proc_GetGigCategories_Result">
           <Property Type="Int32" Name="CategoryID" Nullable="false" />
           <Property Type="String" Name="Category" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="proc_GetMajors_Result">
+          <Property Type="Int32" Name="MajorID" Nullable="false" />
+          <Property Type="String" Name="MajorName" Nullable="true" MaxLength="255" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1590,19 +1590,19 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="proc_AddCollegeTest" FunctionName="DB_42039_gigModel.Store.proc_AddCollegeTest" />
-          <FunctionImportMapping FunctionImportName="proc_GetMajors" FunctionName="DB_42039_gigModel.Store.proc_GetMajors">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DB_42039_gigModel.proc_GetMajors_Result">
-                <ScalarProperty Name="MajorID" ColumnName="MajorID" />
-                <ScalarProperty Name="MajorName" ColumnName="MajorName" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="proc_GetGigCategories" FunctionName="DB_42039_gigModel.Store.proc_GetGigCategories">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DB_42039_gigModel.proc_GetGigCategories_Result">
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="Category" ColumnName="Category" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="proc_GetMajors" FunctionName="DB_42039_gigModel.Store.proc_GetMajors">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_42039_gigModel.proc_GetMajors_Result">
+                <ScalarProperty Name="MajorID" ColumnName="MajorID" />
+                <ScalarProperty Name="MajorName" ColumnName="MajorName" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
