@@ -42,15 +42,12 @@ namespace GigALoan_Service
 
             foreach (CORE_GigAlerts alert in alertList)
             {
-                results.Add(new DTO_CORE_GigAlert { 
+                results.Add(new DTO_CORE_GigAlert {
                     AlertID = alert.AlertID,
-                    ClientID = alert.ClientID,
                     TypeID = alert.TypeID,
                     Title = alert.Title,
-                    Comment = alert.Comment,
-                    PaymentAmt = alert.PaymentAmt,
-                    DateCreated = alert.DateCreated,
-                    Active = alert.Active
+                    Comment = alert.Comment
+                    /*TODO: Get Alert images(or at least the first) loaded as well*/
                 });
             }
 
@@ -71,13 +68,10 @@ namespace GigALoan_Service
             {
                 results.Add(new DTO_CORE_GigAlert {
                     AlertID = alert.AlertID,
-                    ClientID = alert.ClientID,
                     TypeID = alert.TypeID,
                     Title = alert.Title,
-                    Comment = alert.Comment,
-                    PaymentAmt = alert.PaymentAmt,
-                    DateCreated = alert.DateCreated,
-                    Active = alert.Active
+                    Comment = alert.Comment
+                    /*TODO: Get Alert images(or at least the first) loaded as well*/
                 });
             }
 
