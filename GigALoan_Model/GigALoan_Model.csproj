@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO_CHLD_ClientImage.cs" />
     <Compile Include="DTO_CORE_Gig.cs" />
     <Compile Include="DTO_CORE_Student.cs" />
     <Compile Include="DTO_SPRT_College.cs" />
@@ -58,7 +59,9 @@
     <Compile Include="DTO_LOG_Events.cs" />
     <Compile Include="DTO_SPRT_GigCategory.cs" />
     <Compile Include="DTO_SPRT_GigType.cs" />
+    <Compile Include="DTO_SPRT_LoanCompany.cs" />
     <Compile Include="DTO_SPRT_Major.cs" />
+    <Compile Include="DTO_CORE_Client.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
