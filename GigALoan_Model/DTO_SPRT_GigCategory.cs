@@ -10,10 +10,10 @@ namespace GigALoan_Model
     [DataContract]
     public class DTO_SPRT_GigCategory
     {
-        DTO_SPRT_GigCategory()
+        public DTO_SPRT_GigCategory()
         { }
 
-        DTO_SPRT_GigCategory(int id, string categoryName)
+        public DTO_SPRT_GigCategory(int id, string categoryName)
         {
             this.CategoryID = id;
             this.CategoryName = categoryName;
