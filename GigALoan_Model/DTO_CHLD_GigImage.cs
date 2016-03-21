@@ -10,10 +10,10 @@ namespace GigALoan_Model
     [DataContract]
     public class DTO_CHLD_GigImage
     {
-        DTO_CHLD_GigImage()
+        public DTO_CHLD_GigImage()
         { }
 
-        DTO_CHLD_GigImage(int gigID, string imageName)
+        public DTO_CHLD_GigImage(int gigID, string imageName)
         {
             this.GigID = gigID;
             this.ImageName = imageName;

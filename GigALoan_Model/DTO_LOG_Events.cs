@@ -10,16 +10,16 @@ namespace GigALoan_Model
     [DataContract]
     public class DTO_LOG_Events
     {
-        DTO_LOG_Events()
+        public DTO_LOG_Events()
         { }
 
-        DTO_LOG_Events(DateTime time, string message)
+        public DTO_LOG_Events(DateTime time, string message)
         {
             this.DateLogged = time;
             this.LogMessage = message;
         }
 
-        DTO_LOG_Events(int id, DateTime time, string message)
+        public DTO_LOG_Events(int id, DateTime time, string message)
         {
             this.LogID = id;
             this.DateLogged = time;

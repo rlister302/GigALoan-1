@@ -10,10 +10,10 @@ namespace GigALoan_Model
     [DataContract]
     public class DTO_CHLD_StudentImage
     {
-        DTO_CHLD_StudentImage()
+        public DTO_CHLD_StudentImage()
         { }
 
-        DTO_CHLD_StudentImage(int studentID, string imageName)
+        public DTO_CHLD_StudentImage(int studentID, string imageName)
         {
             this.StudentID = studentID;
             this.ImageName = imageName;

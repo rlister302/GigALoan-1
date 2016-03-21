@@ -10,7 +10,7 @@ namespace GigALoan_Model
     [DataContract]
     public class DTO_CHLD_StudentReference
     {
-        DTO_CHLD_StudentReference()
+        public DTO_CHLD_StudentReference()
         { }
 
         [DataMember]
