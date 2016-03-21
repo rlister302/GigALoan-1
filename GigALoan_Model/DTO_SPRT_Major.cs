@@ -10,10 +10,10 @@ namespace GigALoan_Model
     [DataContract]
     public class DTO_SPRT_Major
     {
-        DTO_SPRT_Major()
+        public DTO_SPRT_Major()
         { }
 
-        DTO_SPRT_Major(int id, string name)
+        public DTO_SPRT_Major(int id, string name)
         {
             this.MajorID = id;
             this.MajorName = name;

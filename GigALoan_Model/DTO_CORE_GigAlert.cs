@@ -10,7 +10,7 @@ namespace GigALoan_Model
     [DataContract]
     public class DTO_CORE_GigAlert
     {
-        DTO_CORE_GigAlert()
+        public DTO_CORE_GigAlert()
         { }
 
         [DataMember]
