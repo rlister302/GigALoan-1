@@ -6,6 +6,26 @@ using System.Web.Services;
 using GigALoan_DAL;
 using GigALoan_Model;
 
+
+
+
+/*
+ * 
+ * 
+ * 
+ * 
+ * 
+ * This is for demonstration only
+ * We probably won't be using this as an actual service here
+ * but we might pull some of these methods out and stick them in Internal Service later.
+ * 
+ * 
+ * 
+ * 
+ * 
+ *  
+ */
+
 namespace GigALoan_Service
 {
     /// <summary>

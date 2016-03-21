@@ -76,6 +76,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Search_Service.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +89,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search_Service.asmx.cs">
+      <DependentUpon>Search_Service.asmx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GigALoan_DAL\GigALoan_DAL.csproj">
