@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Services;
 using GigALoan_DAL;
 using GigALoan_Model;
+using Newtonsoft.Json;
 
 namespace GigALoan_Service
 {
@@ -19,20 +20,25 @@ namespace GigALoan_Service
     public class Internal_Service : System.Web.Services.WebService {
 
         [WebMethod]
-        public List<DTO_CORE_Student> GetStudentsBySkillID(int id) {
+        public string GetStudentsBySkillID(string json) {
+            var requestObject = JsonConvert.DeserializeObject<DTO_SPRT_GigType>(json);
+
             GigALoan_DAL.DB_42039_gigEntities1 context = new GigALoan_DAL.DB_42039_gigEntities1();
+
             List<DTO_CORE_Student> results = new List<DTO_CORE_Student>();
-            var students = context.CORE_Students.Where(s => s.SPRT_GigTypes.Any(gt => gt.TypeID == id));
+
+            var students = context.CORE_Students.Where(s => s.SPRT_GigTypes.Any(gt => gt.TypeID == requestObject.TypeID));
 
             foreach(var student in students)
             {
-                DTO_CORE_Student s = new DTO_CORE_Student();
-                s.StudentID = student.StudentID;
-                results.Add(s);
+                results.Add(new DTO_CORE_Student
+                {
+                    StudentID = student.StudentID
+                });
             }
-            
 
-            return results;
+
+            return JsonConvert.SerializeObject(results);
         }
     }
 }
