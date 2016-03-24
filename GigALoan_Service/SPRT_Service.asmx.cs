@@ -107,7 +107,7 @@ namespace GigALoan_Service
         }
 
         [WebMethod]
-        public List<DTO_SPRT_GigType> GetGigTypeByCategoryID(string json)
+        public string GetGigTypeByCategoryID(string json)
         {
             var requestObject = JsonConvert.DeserializeObject<DTO_SPRT_GigType>(json);
 
@@ -121,7 +121,7 @@ namespace GigALoan_Service
                 results.Add(new DTO_SPRT_GigType(entity.typeid, entity.TypeName));
             }
 
-            return results;
+            return JsonConvert.SerializeObject(results);
         }
     }
 }
