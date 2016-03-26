@@ -77,5 +77,123 @@ namespace GigALoan_Service
 
             return JsonConvert.SerializeObject(results);
         }
+        [WebMethod]
+        public string FindAlertByID(string request)
+        {
+            var requestObject = JsonConvert.DeserializeObject<DTO_CORE_GigAlert>(request);
+
+            GigALoan_DAL.DB_42039_gigEntities1 context = new GigALoan_DAL.DB_42039_gigEntities1();
+
+            var alert = context.CORE_GigAlerts.Where(ga => ga.AlertID == requestObject.AlertID).Single();
+
+            DTO_CORE_GigAlert result = new DTO_CORE_GigAlert
+            {
+                AlertID = alert.AlertID,
+                TypeID = alert.TypeID,
+                Title = alert.Title,
+                Comment = alert.Comment
+                /*TODO: Get Alert images(or at least the first) loaded as well*/
+            };
+
+            return JsonConvert.SerializeObject(result);
+        }
+        [WebMethod]
+        public string FindGigByAlertID(string request)
+        {
+            DTO_CORE_Gig result;
+
+            var requestObject = JsonConvert.DeserializeObject<CORE_Gigs>(request);
+
+            GigALoan_DAL.DB_42039_gigEntities1 context = new GigALoan_DAL.DB_42039_gigEntities1();
+
+            var gig = context.CORE_Gigs.Where(g => g.AlertID == requestObject.AlertID).Single();
+
+            result = new DTO_CORE_Gig{
+                GigID = gig.GigID, 
+                StudentID = gig.StudentID, 
+                AlertID = gig.AlertID,
+                DateAccepted = gig.DateAccepted, 
+                StudentComments = gig.StudentComments, 
+                ClientComments = gig.ClientComments
+            };
+
+            if (gig.DateClosed != null)
+                result.DateClosed = (DateTime)gig.DateClosed;
+            if (gig.StudentRating != null)
+                result.StudentRating = (double)gig.StudentRating;
+            if (gig.ClientRating != null)
+                result.ClientRating = (double)gig.ClientRating;
+
+            return JsonConvert.SerializeObject(result);
+        }
+        [WebMethod]
+        public string FindGigsByStudentID(string request)
+        {
+            List<DTO_CORE_Gig> resultList = new List<DTO_CORE_Gig>();
+
+            var requestObject = JsonConvert.DeserializeObject<CORE_Gigs>(request);
+
+            GigALoan_DAL.DB_42039_gigEntities1 context = new GigALoan_DAL.DB_42039_gigEntities1();
+
+            var gigList = context.CORE_Gigs.Where(g => g.StudentID == requestObject.StudentID);
+
+            foreach (CORE_Gigs gig in gigList)
+            {
+                DTO_CORE_Gig result = new DTO_CORE_Gig
+                {
+                    GigID = gig.GigID,
+                    StudentID = gig.StudentID,
+                    AlertID = gig.AlertID,
+                    DateAccepted = gig.DateAccepted,
+                    StudentComments = gig.StudentComments,
+                    ClientComments = gig.ClientComments
+                };
+
+                if (gig.DateClosed != null)
+                    result.DateClosed = (DateTime)gig.DateClosed;
+                if (gig.StudentRating != null)
+                    result.StudentRating = (double)gig.StudentRating;
+                if (gig.ClientRating != null)
+                    result.ClientRating = (double)gig.ClientRating;
+
+                resultList.Add(result);
+            }
+            return JsonConvert.SerializeObject(resultList);
+        }
+        [WebMethod]
+        public string FindGigsByClientID(string request)
+        {
+            List<DTO_CORE_Gig> resultList = new List<DTO_CORE_Gig>();
+
+            GigALoan_DAL.DB_42039_gigEntities1 context = new GigALoan_DAL.DB_42039_gigEntities1();
+
+            var requestObject = JsonConvert.DeserializeObject<CORE_GigAlerts>(request);
+
+            var gigList = context.CORE_Gigs.Where(g => g.CORE_GigAlerts.ClientID == requestObject.ClientID);
+
+            foreach (CORE_Gigs gig in gigList)
+            {
+                DTO_CORE_Gig result = new DTO_CORE_Gig
+                {
+                    GigID = gig.GigID,
+                    StudentID = gig.StudentID,
+                    AlertID = gig.AlertID,
+                    DateAccepted = gig.DateAccepted,
+                    StudentComments = gig.StudentComments,
+                    ClientComments = gig.ClientComments
+                };
+
+                if (gig.DateClosed != null)
+                    result.DateClosed = (DateTime)gig.DateClosed;
+                if (gig.StudentRating != null)
+                    result.StudentRating = (double)gig.StudentRating;
+                if (gig.ClientRating != null)
+                    result.ClientRating = (double)gig.ClientRating;
+
+                resultList.Add(result);
+            }
+            return JsonConvert.SerializeObject(resultList);
+        }
+
     }
 }

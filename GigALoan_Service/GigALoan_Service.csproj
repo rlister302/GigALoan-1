@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Colleges_Service.asmx" />
+    <Content Include="Gig_Service.asmx" />
     <Content Include="Internal_Service.asmx" />
     <Content Include="Login_Service.asmx" />
     <Content Include="packages.config" />
@@ -87,6 +88,9 @@
     <Compile Include="Colleges_Service.asmx.cs">
       <DependentUpon>Colleges_Service.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Gig_Service.asmx.cs">
+      <DependentUpon>Gig_Service.asmx</DependentUpon>
     </Compile>
     <Compile Include="Internal_Service.asmx.cs">
       <DependentUpon>Internal_Service.asmx</DependentUpon>

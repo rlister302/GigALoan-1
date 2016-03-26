@@ -28,10 +28,10 @@ namespace GigALoan_Service
             DTO_SPRT_College returnCollege = new DTO_SPRT_College();
 
             GigALoan_DAL.DB_42039_gigEntities1 context = new GigALoan_DAL.DB_42039_gigEntities1();
-            
+
             var college = context.proc_GetColleges().Where(col => col.CollegeID == requestObject.CollegeID).Single();
             DTO_SPRT_College result = new DTO_SPRT_College(college.CollegeID, college.CollegeName);
-            
+
             return JsonConvert.SerializeObject(result);
         }
 
@@ -40,7 +40,7 @@ namespace GigALoan_Service
         {
             List<DTO_SPRT_College> results = new List<DTO_SPRT_College>();
             GigALoan_DAL.DB_42039_gigEntities1 context = new GigALoan_DAL.DB_42039_gigEntities1();
-            
+
             var list = context.proc_GetColleges().ToList();
             foreach (var entity in list)
             {
@@ -68,7 +68,7 @@ namespace GigALoan_Service
         {
             List<DTO_SPRT_Major> results = new List<DTO_SPRT_Major>();
             GigALoan_DAL.DB_42039_gigEntities1 context = new GigALoan_DAL.DB_42039_gigEntities1();
-            
+
             var list = context.proc_GetMajors().ToList();
             foreach (var entity in list)
             {
@@ -119,6 +119,72 @@ namespace GigALoan_Service
             foreach (var entity in list)
             {
                 results.Add(new DTO_SPRT_GigType(entity.typeid, entity.TypeName));
+            }
+
+            return JsonConvert.SerializeObject(results);
+        }
+
+        [WebMethod]
+        public string GetGigCategoryByID(string json)
+        {
+            var requestObject = JsonConvert.DeserializeObject<DTO_SPRT_GigCategory>(json);
+
+            GigALoan_DAL.DB_42039_gigEntities1 context = new GigALoan_DAL.DB_42039_gigEntities1();
+
+            var gigCategory = context.SPRT_GigCategories.Where(gc => gc.CategoryID == requestObject.CategoryID).Single();
+            DTO_SPRT_GigCategory result = new DTO_SPRT_GigCategory(gigCategory.CategoryID, gigCategory.Category);
+
+            return JsonConvert.SerializeObject(result);
+        }
+
+        [WebMethod]
+        public string GetGigCategories()
+        {
+            List<DTO_SPRT_GigCategory> results = new List<DTO_SPRT_GigCategory>();
+            GigALoan_DAL.DB_42039_gigEntities1 context = new GigALoan_DAL.DB_42039_gigEntities1();
+
+            var list = context.SPRT_GigCategories.ToList();
+            foreach (var entity in list)
+            {
+                results.Add(new DTO_SPRT_GigCategory(entity.CategoryID, entity.Category));
+            }
+
+            return JsonConvert.SerializeObject(results);
+        }
+
+        [WebMethod]
+        public string GetLoanCompanyByID(string json)
+        {
+            var requestObject = JsonConvert.DeserializeObject<DTO_SPRT_LoanCompany>(json);
+
+            GigALoan_DAL.DB_42039_gigEntities1 context = new GigALoan_DAL.DB_42039_gigEntities1();
+
+            var loanCompany = context.SPRT_LoanCompanies.Where(lc => lc.CompanyID == requestObject.CompanyID).Single();
+            DTO_SPRT_LoanCompany result = new DTO_SPRT_LoanCompany
+            {
+                CompanyID = loanCompany.CompanyID,
+                CompanyName = loanCompany.CompanyName,
+                CompanyState = loanCompany.CompanyState
+            };
+
+            return JsonConvert.SerializeObject(result);
+        }
+
+        [WebMethod]
+        public string GetGigLoanCompanies()
+        {
+            List<DTO_SPRT_LoanCompany> results = new List<DTO_SPRT_LoanCompany>();
+            GigALoan_DAL.DB_42039_gigEntities1 context = new GigALoan_DAL.DB_42039_gigEntities1();
+
+            var list = context.SPRT_LoanCompanies.ToList();
+            foreach (var entity in list)
+            {
+                results.Add(new DTO_SPRT_LoanCompany
+                {
+                    CompanyID = entity.CompanyID,
+                    CompanyName = entity.CompanyName,
+                    CompanyState = entity.CompanyState
+                });
             }
 
             return JsonConvert.SerializeObject(results);
