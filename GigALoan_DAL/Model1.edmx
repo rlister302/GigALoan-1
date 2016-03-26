@@ -126,6 +126,8 @@
           <Property Name="Employer" Type="varchar" MaxLength="50" />
           <Property Name="PhoneNumber" Type="varchar" MaxLength="10" />
           <Property Name="Active" Type="bit" />
+          <Property Name="Lat" Type="float" />
+          <Property Name="Long" Type="float" />
         </EntityType>
         <EntityType Name="LOG_Events">
           <Key>
@@ -446,6 +448,10 @@
           <Parameter Name="TypeID" Type="int" Mode="In" />
         </Function>
         <Function Name="proc_GetLoanCompanies" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="proc_GetLocalStudentsByAlert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="alertID" Type="int" Mode="In" />
+          <Parameter Name="range" Type="int" Mode="In" />
+        </Function>
         <Function Name="proc_GetMajors" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="proc_GetStudentImage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="StudentID" Type="int" Mode="In" />
@@ -730,6 +736,8 @@
           <NavigationProperty Name="SPRT_Colleges" Relationship="Self.FK_CORE_Students_CollegeID" FromRole="CORE_Students" ToRole="SPRT_Colleges" />
           <NavigationProperty Name="SPRT_Majors" Relationship="Self.FK_CORE_Students_MajorID" FromRole="CORE_Students" ToRole="SPRT_Majors" />
           <NavigationProperty Name="SPRT_GigTypes" Relationship="Self.CHLD_StudentSkills" FromRole="CORE_Students" ToRole="SPRT_GigTypes" />
+          <Property Name="Lat" Type="Double" />
+          <Property Name="Long" Type="Double" />
         </EntityType>
         <EntityType Name="LOG_Events">
           <Key>
@@ -1176,6 +1184,10 @@
           </FunctionImport>
           <FunctionImport Name="proc_GetGigCategories" ReturnType="Collection(DB_42039_gigModel.proc_GetGigCategories_Result)" />
           <FunctionImport Name="proc_GetMajors" ReturnType="Collection(DB_42039_gigModel.proc_GetMajors_Result)" />
+          <FunctionImport Name="proc_GetLocalStudentsByAlert" ReturnType="Collection(Int32)">
+            <Parameter Name="alertID" Mode="In" Type="Int32" />
+            <Parameter Name="range" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="proc_GetClientImage_Result">
           <Property Type="Int32" Name="ImageID" Nullable="false" />
@@ -1370,6 +1382,8 @@
           <EntitySetMapping Name="CORE_Students">
             <EntityTypeMapping TypeName="DB_42039_gigModel.CORE_Students">
               <MappingFragment StoreEntitySet="CORE_Students">
+                <ScalarProperty Name="Long" ColumnName="Long" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
                 <ScalarProperty Name="StudentID" ColumnName="StudentID" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -1606,6 +1620,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="proc_GetLocalStudentsByAlert" FunctionName="DB_42039_gigModel.Store.proc_GetLocalStudentsByAlert" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
