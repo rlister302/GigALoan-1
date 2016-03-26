@@ -78,6 +78,26 @@ namespace GigALoan_Service
             return JsonConvert.SerializeObject(results);
         }
         [WebMethod]
+        public string FindAlertByID(string request)
+        {
+            var requestObject = JsonConvert.DeserializeObject<DTO_CORE_GigAlert>(request);
+
+            GigALoan_DAL.DB_42039_gigEntities1 context = new GigALoan_DAL.DB_42039_gigEntities1();
+
+            var alert = context.CORE_GigAlerts.Where(ga => ga.AlertID == requestObject.AlertID).Single();
+
+            DTO_CORE_GigAlert result = new DTO_CORE_GigAlert
+            {
+                AlertID = alert.AlertID,
+                TypeID = alert.TypeID,
+                Title = alert.Title,
+                Comment = alert.Comment
+                /*TODO: Get Alert images(or at least the first) loaded as well*/
+            };
+
+            return JsonConvert.SerializeObject(result);
+        }
+        [WebMethod]
         public string FindGigByAlertID(string request)
         {
             DTO_CORE_Gig result;
