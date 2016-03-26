@@ -45,6 +45,28 @@ namespace GigALoan_Service
             return JsonConvert.SerializeObject(results);
         }
 
+        [WebMethod]
+        public List<DTO_CORE_Student> AlertLocalStudents(DTO_CORE_GigAlert alert, int range)
+        {
+            GigALoan_DAL.DB_42039_gigEntities1 context = new GigALoan_DAL.DB_42039_gigEntities1();
+            if (range == 0)
+                range = 10; //10 miles
+            
+            var localStudents = context.proc_GetLocalStudentsByAlert(alert.AlertID, range).ToList();
+            List<DTO_CORE_Student> returnList = new List<DTO_CORE_Student>();
+
+            foreach (var s in localStudents)
+            {
+                returnList.Add(new DTO_CORE_Student
+                {
+                    StudentID = s.Value
+                });
+            }
+
+            return returnList;
+        }
+
+
         public bool isLocal(double lat1, double lon1, double lat2, double lon2, int range)
         {
             GeoCoordinate start = new GeoCoordinate(lat1, lon1);

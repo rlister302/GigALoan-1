@@ -515,5 +515,18 @@ namespace GigALoan_DAL
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<proc_GetMajors_Result>("proc_GetMajors");
         }
+    
+        public virtual ObjectResult<Nullable<int>> proc_GetLocalStudentsByAlert(Nullable<int> alertID, Nullable<int> range)
+        {
+            var alertIDParameter = alertID.HasValue ?
+                new ObjectParameter("alertID", alertID) :
+                new ObjectParameter("alertID", typeof(int));
+    
+            var rangeParameter = range.HasValue ?
+                new ObjectParameter("range", range) :
+                new ObjectParameter("range", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("proc_GetLocalStudentsByAlert", alertIDParameter, rangeParameter);
+        }
     }
 }

@@ -36,6 +36,8 @@ namespace GigALoan_DAL
         public string Employer { get; set; }
         public string PhoneNumber { get; set; }
         public Nullable<bool> Active { get; set; }
+        public Nullable<double> Lat { get; set; }
+        public Nullable<double> Long { get; set; }
     
         public virtual ICollection<CHLD_StudentImages> CHLD_StudentImages { get; set; }
         public virtual ICollection<CHLD_StudentLoans> CHLD_StudentLoans { get; set; }
