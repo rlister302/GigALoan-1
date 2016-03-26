@@ -28,10 +28,10 @@ namespace GigALoan_Service
             DTO_SPRT_College returnCollege = new DTO_SPRT_College();
 
             GigALoan_DAL.DB_42039_gigEntities1 context = new GigALoan_DAL.DB_42039_gigEntities1();
-            
+
             var college = context.proc_GetColleges().Where(col => col.CollegeID == requestObject.CollegeID).Single();
             DTO_SPRT_College result = new DTO_SPRT_College(college.CollegeID, college.CollegeName);
-            
+
             return JsonConvert.SerializeObject(result);
         }
 
@@ -40,7 +40,7 @@ namespace GigALoan_Service
         {
             List<DTO_SPRT_College> results = new List<DTO_SPRT_College>();
             GigALoan_DAL.DB_42039_gigEntities1 context = new GigALoan_DAL.DB_42039_gigEntities1();
-            
+
             var list = context.proc_GetColleges().ToList();
             foreach (var entity in list)
             {
@@ -68,7 +68,7 @@ namespace GigALoan_Service
         {
             List<DTO_SPRT_Major> results = new List<DTO_SPRT_Major>();
             GigALoan_DAL.DB_42039_gigEntities1 context = new GigALoan_DAL.DB_42039_gigEntities1();
-            
+
             var list = context.proc_GetMajors().ToList();
             foreach (var entity in list)
             {
@@ -160,7 +160,8 @@ namespace GigALoan_Service
             GigALoan_DAL.DB_42039_gigEntities1 context = new GigALoan_DAL.DB_42039_gigEntities1();
 
             var loanCompany = context.SPRT_LoanCompanies.Where(lc => lc.CompanyID == requestObject.CompanyID).Single();
-            DTO_SPRT_LoanCompany result = new DTO_SPRT_LoanCompany{
+            DTO_SPRT_LoanCompany result = new DTO_SPRT_LoanCompany
+            {
                 CompanyID = loanCompany.CompanyID,
                 CompanyName = loanCompany.CompanyName,
                 CompanyState = loanCompany.CompanyState
